@@ -80,6 +80,7 @@ if __name__ == "__main__":
 
     total_kept = 0
     total_seen = 0
+    skipped: List[tuple[str, str]] = []  # (sample_name, reason)
 
     for sample_dir in sample_dirs:
         masks_dir  = sample_dir / "masks"
@@ -87,9 +88,11 @@ if __name__ == "__main__":
 
         if not masks_dir.exists():
             print(f"[SKIP] No masks/ dir found in {sample_dir}")
+            skipped.append((sample_dir.name, "missing masks/"))
             continue
         if not frames_dir.exists():
             print(f"[SKIP] No frames/ dir found in {sample_dir}")
+            skipped.append((sample_dir.name, "missing frames/"))
             continue
 
         valid_masks = extract_masks(masks_dir, args.min_valid_pct)
@@ -112,3 +115,7 @@ if __name__ == "__main__":
         print(f"[OK]   {sample_dir.name}: {len(valid_masks)} / {sum(1 for _ in masks_dir.iterdir() if _.is_file())} masks kept")
 
     print(f"\nDone. {total_kept} pairs copied to {output_dir}  ({total_seen} masks evaluated)")
+    if skipped:
+        print(f"Skipped {len(skipped)} sample(s):")
+        for name, reason in skipped:
+            print(f"  - {name}: {reason}")
