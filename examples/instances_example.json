@@ -1,0 +1,89 @@
+{
+    "info": {
+        "description": "Semantic Drone Dataset \u2013 person detection",
+        "version": "1.1"
+    },
+    "licenses": [],
+    "categories": [
+        {
+            "id": 1,
+            "name": "person",
+            "supercategory": "human"
+        }
+    ],
+    "images": [
+        {
+            "id": 2052,
+            "file_name": "478_orig.jpg",
+            "width": 1500,
+            "height": 1000
+        }
+    ],
+    "annotations": [
+        {
+            "id": 1,
+            "image_id": 2052,
+            "category_id": 1,
+            "bbox": [
+                542.0,
+                263.5,
+                70.5,
+                80.5
+            ],
+            "area": 5675.25,
+            "iscrowd": 0
+        },
+        {
+            "id": 2,
+            "image_id": 2052,
+            "category_id": 1,
+            "bbox": [
+                796.25,
+                393.5,
+                52.75,
+                48.0
+            ],
+            "area": 2532.0,
+            "iscrowd": 0
+        },
+        {
+            "id": 3,
+            "image_id": 2052,
+            "category_id": 1,
+            "bbox": [
+                1149.0,
+                706.75,
+                83.75,
+                51.0
+            ],
+            "area": 4271.25,
+            "iscrowd": 0
+        },
+        {
+            "id": 4,
+            "image_id": 2052,
+            "category_id": 1,
+            "bbox": [
+                1157.75,
+                787.0,
+                75.75,
+                74.25
+            ],
+            "area": 5624.4375,
+            "iscrowd": 0
+        },
+        {
+            "id": 5,
+            "image_id": 2052,
+            "category_id": 1,
+            "bbox": [
+                962.25,
+                741.5,
+                60.75,
+                79.25
+            ],
+            "area": 4814.4375,
+            "iscrowd": 0
+        }
+    ]
+}
