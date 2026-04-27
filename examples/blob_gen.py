@@ -34,3 +34,4 @@ for _ in range(N):
     cv2.fillPoly(mask, [curve], 255)
 
 cv2.imwrite('mask_example2.png', mask)
+print("commit test")
