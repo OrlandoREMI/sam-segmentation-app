@@ -11,7 +11,8 @@ def generate_coco_from_folder(input_folder, output_json_path):
         "licenses": [],
         "categories": [{"id": 1, "name": "person", "supercategory": "shape"}],
         "images": [],
-        "annotations": []
+        "person": []
+        
     }
     
     # Contadores globales
