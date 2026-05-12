@@ -68,7 +68,7 @@ def generate_coco_from_folder(input_folder, output_json_path):
     with open(output_json_path, 'w') as f:
         json.dump(coco_data, f, indent=4)
         
-    print(f"\nÉxito. Se ha generado '{output_json_path}' con {len(coco_data['annotations'])} anotaciones totales.")
+    print(f"\nÉxito. Se ha generado '{output_json_path}' con {len(coco_data['person'])} anotaciones totales.")
 
 # --- Correr el programa ---
 generate_coco_from_folder('/home/luis/bordes4/sam2_output_e_mnvl1v/masks', 'dataset_annotations1.json')
