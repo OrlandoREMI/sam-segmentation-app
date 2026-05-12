@@ -4,7 +4,7 @@ import os
 
 def generate_coco_from_folder(input_folder, output_json_path):
     """
-    Recorre una carpeta de máscaras, detecta blobs y genera un JSON de todas las imágenes.
+    Recorre una carpeta de máscaras, detecta blobs y genera un único JSON COCO.
     """
     coco_data = {
         "info": {"description": "Dataset generado por script", "version": "1.0"},
@@ -12,7 +12,6 @@ def generate_coco_from_folder(input_folder, output_json_path):
         "categories": [{"id": 1, "name": "person", "supercategory": "shape"}],
         "images": [],
         "person": []
-        
     }
     
     # Contadores globales
@@ -36,10 +35,13 @@ def generate_coco_from_folder(input_folder, output_json_path):
             
         height, width = mask.shape
         
+        name_without_ext = os.path.splitext(filename)[0]
+        new_filename = f"{name_without_ext}.jpg"
+        
         # 2. Agregar información de la imagen al JSON
         coco_data["images"].append({
             "id": image_id,
-            "file_name": filename,
+            "file_name": new_filename,
             "width": width,
             "height": height
         })
@@ -68,8 +70,8 @@ def generate_coco_from_folder(input_folder, output_json_path):
     with open(output_json_path, 'w') as f:
         json.dump(coco_data, f, indent=4)
         
-    print(f"\nÉxito. Se ha generado '{output_json_path}' con {len(coco_data['person'])} anotaciones totales.")
+    print(f"\nÉxito. Se ha generado '{output_json_path}' con {len(coco_data['person'])} personas totales.")
 
-# --- Correr el programa ---
-generate_coco_from_folder('/home/luis/bordes4/sam2_output_e_mnvl1v/masks', 'dataset_annotations1.json')
-
+# --- Uso del script ---
+# Asegúrate de poner la ruta de tu carpeta aquí:
+generate_coco_from_folder('/home/alan02/Documentos/masks2', 'dataset_suspect1.json')
