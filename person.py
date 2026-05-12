@@ -51,7 +51,7 @@ def generate_coco_from_folder(input_folder, output_json_path):
         for contour in contours:
             x, y, w, h = cv2.boundingRect(contour)
             
-            coco_data["annotations"].append({
+            coco_data["person"].append({
                 "id": annotation_id,
                 "image_id": image_id,
                 "category_id": 1,
